@@ -17,7 +17,7 @@ public class DBConfig {
     public DataSource getDataSource2() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/extractor?serverTimezone=UTC&useLegacyDatetimeCode=false");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/extractor2?serverTimezone=UTC&useLegacyDatetimeCode=false");
         dataSource.setUsername("pmauser");
         dataSource.setPassword("alvin147");
          

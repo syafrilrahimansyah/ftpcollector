@@ -12,7 +12,7 @@ public class OmniformDAOimpl implements OmniformDAO{
 	@Override
 	public void addOmniform(String payload) {
 		// TODO Auto-generated method stub
-		String sql = "INSERT INTO omniform(id,payload,stage) VALUES('00001234','"+payload+"','col')";
+		String sql = "INSERT INTO OMNIFORM(PATH,STAGE) VALUES('"+payload+"','col')";
 		jdbcTemplate.update(sql);
 	}
 	@Override
