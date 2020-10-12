@@ -2,24 +2,32 @@ package com.tselree.ftpcollector.config;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.tselree.ftpcollector.DAO.OmniformDAO;
 import com.tselree.ftpcollector.DAO.OmniformDAOimpl;
 
 @Configuration
-@ComponentScan(basePackages="com.tselree.ftpcollector")
+@PropertySource({
+    "file:src/main/resources/application.properties" 
+})
 public class DBConfig {
+	@Autowired
+    Environment env;
+	
 	@Bean()
     public DataSource getDataSource2() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/extractor2?serverTimezone=UTC&useLegacyDatetimeCode=false");
-        dataSource.setUsername("pmauser");
-        dataSource.setPassword("alvin147");
+        dataSource.setDriverClassName(env.getProperty("DB_DRIVER"));
+        dataSource.setUrl(env.getProperty("DB_URL"));
+        dataSource.setUsername(env.getProperty("DB_USERNAME"));
+        dataSource.setPassword(env.getProperty("DB_PASSWORD"));
          
         return dataSource;
     }
