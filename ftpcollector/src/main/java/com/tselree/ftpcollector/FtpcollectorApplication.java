@@ -22,7 +22,7 @@ import com.tselree.ftpcollector.DAO.OmniformDAO;
 
 @SpringBootApplication
 @PropertySource({
-    "file:src/main/resources/application.properties" 
+    "file:src/main/resources/ftp_application.properties" 
 })
 public class FtpcollectorApplication {
 	@Autowired
